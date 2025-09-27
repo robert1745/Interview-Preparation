@@ -60,3 +60,18 @@ public:
         return false;  // reached NULL → no cycle
     }
 };
+
+// [1,2,3,4,2] 
+// Math behind the cycle detection
+// length = 1 ( from head to cycle start )
+// C = 3
+// x = 2 ( distance from cycle start to meeting point )
+
+// dist by slow pointer = l + x
+// dist by fast pointer = l+ x + n*C ( n = number of cycles completed by fast pointer )
+
+// dist by fast pointer = 2 * dist by slow pointer
+// => l + x + n*C = 2*(l + x)
+// => l + x = n*C
+// => l = n*C - x
+
